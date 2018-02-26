@@ -8,6 +8,7 @@ using VRTK;
 
 public class LeverController : MonoBehaviour {
     VRTK_SpringLever rotator;
+    public ParticleSystem particles;
 
     public bool start;
     public static LeverController instance;
@@ -29,6 +30,12 @@ public class LeverController : MonoBehaviour {
         //start the belt movement after the lever is pulled a certain amount
         if (rotator.GetValue() > 20.0f) {
             start = true;
+            Destroy(gameObject, 1.0f);
         }
 	}
+
+    void OnDestroy() {
+        //play a sound effect as well
+        particles.Play();
+    }
 }
