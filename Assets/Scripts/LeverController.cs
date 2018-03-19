@@ -1,5 +1,5 @@
 ﻿// Victor Zamarian
-// 2/20/18
+// 3/19/18
 
 using System.Collections;
 using System.Collections.Generic;
@@ -17,7 +17,7 @@ public class LeverController : MonoBehaviour {
 	void Start () {
         if (instance == null) {
             instance = this;
-        } if (instance != this) {
+        } else if (instance != this) {
             Destroy(gameObject);
         }
 
