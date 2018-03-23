@@ -38,5 +38,10 @@ public class BeltController : MonoBehaviour {
             speed += speedIncrement;
             start = current;
         }*/
+
+        if (GameController.instance.levelOver) {
+            //play a powering down sound effect
+            speed = 0.0f;
+        }
     }
 }

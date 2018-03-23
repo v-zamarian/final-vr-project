@@ -1,5 +1,5 @@
 ﻿// Victor Zamarian
-// 3/19/18
+// 3/23/18
 
 using System.Collections;
 using System.Collections.Generic;
@@ -10,13 +10,13 @@ public class ItemSpawner : MonoBehaviour {
     public float minItemTime;
     public float maxItemTime;
 
-    public GameObject[] itemList;
+    GameObject[] itemList;
 
     bool singleCall;
 
 	// Use this for initialization
 	void Start () {
-        singleCall = true;
+        singleCall = true;  
 	}
 	
 	// Update is called once per frame
@@ -28,6 +28,9 @@ public class ItemSpawner : MonoBehaviour {
 	}
 
     private IEnumerator SpawnItems() {
+        //get the list of items from GameController
+        itemList = (GameObject[])GameController.instance.itemList.Clone();
+
         //spawn items while the level is not over
         while (!GameController.instance.levelOver) {
             //randomly choose the item to spawn
