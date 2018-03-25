@@ -8,6 +8,7 @@ TagManager:
   - TeleportIgnore
   - Teleport
   - BeltControl
+  - Screen
   layers:
   - Default
   - TransparentFX

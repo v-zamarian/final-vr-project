@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[DefaultExecutionOrder (1)]
 public class GameController : MonoBehaviour {
 
     public bool levelOver;
@@ -29,7 +30,7 @@ public class GameController : MonoBehaviour {
 
         //a random item from the list will be chosen
         keepItem = itemList[Random.Range(0, itemList.Length)].GetComponent<Item>().itemNum;
-        print(keepItem);
+        print("KEEP ITEM: " + keepItem);
     }
 	
 	// Update is called once per frame
