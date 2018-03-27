@@ -8,3 +8,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Main.unity
     guid: 20b851ff0e40a924485e40342631611c
+  - enabled: 1
+    path: Assets/Dual belt testing.unity
+    guid: d05728d278f94b04b93fe550525aeabd
