@@ -1,5 +1,5 @@
 ﻿// Victor Zamarian
-// 3/26/18
+// 3/27/18
 
 using System.Collections;
 using System.Collections.Generic;
@@ -17,8 +17,8 @@ public class ScreenController : MonoBehaviour {
     //still need to add text and buttons to these groups
     public GameObject levelOverObjs;
     public GameObject levelWonObjs;
-    public GameObject levelLoss1Objs; //strikes
-    public GameObject levelLoss2Objs; //points
+    public GameObject levelLoss1Text; //strikes
+    public GameObject levelLoss2Text; //points
 
     int cameraNum;
     bool singleCall;
@@ -29,8 +29,8 @@ public class ScreenController : MonoBehaviour {
 
         levelOverObjs.SetActive(false);
         levelWonObjs.SetActive(false);
-        levelLoss1Objs.SetActive(false);
-        levelLoss2Objs.SetActive(false);
+        levelLoss1Text.SetActive(false);
+        levelLoss2Text.SetActive(false);
 
         int keepItem = GameController.instance.GetKeepItem();
 
@@ -64,9 +64,9 @@ public class ScreenController : MonoBehaviour {
         if (outcome == 0) { //level won
             levelWonObjs.SetActive(true);
         }else if (outcome == 1) { //too many strikes
-            levelLoss1Objs.SetActive(true);
+            levelLoss1Text.SetActive(true);
         }else if (outcome == 2) { //not enough points
-            levelLoss2Objs.SetActive(true);
+            levelLoss2Text.SetActive(true);
         }
     }
 }

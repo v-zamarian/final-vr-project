@@ -13,7 +13,7 @@ public class GameController : MonoBehaviour {
     public bool levelOver;
     public int maxStrikes;
     public Text strikesText;
-    //add countdown to screen
+    public Text timerText;
     public GameObject[] itemList;
 
     public static GameController instance;
