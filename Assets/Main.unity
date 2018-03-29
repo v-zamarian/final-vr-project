@@ -5918,6 +5918,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelOver: 0
   maxStrikes: 3
+  totalTime: 15
   strikesText: {fileID: 69762905}
   timerText: {fileID: 641355302}
   itemList:

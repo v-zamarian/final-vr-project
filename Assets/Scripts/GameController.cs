@@ -12,27 +12,35 @@ public class GameController : MonoBehaviour {
 
     public bool levelOver;
     public int maxStrikes;
+    public float totalTime;
     public Text strikesText;
     public Text timerText;
     public GameObject[] itemList;
 
     public static GameController instance;
 
+    float timeLeft = 0.0f;
     int keepItem;
     int strikes;
+    bool singleCall;
 
-    //will be used later
+    //will be used later, add to second screen
     int points;
     int pointsRequired = 50;
 
-	// Use this for initialization
-	void Start () {
+    void Awake() {
+        //fade from black
+    }
+
+    // Use this for initialization
+    void Start () {
         if (instance == null) {
             instance = this;
         } else if (instance != this) {
             Destroy(gameObject);
         }
 
+        singleCall = true;
         levelOver = false;
         strikes = 0;
         points = 0;
@@ -44,6 +52,8 @@ public class GameController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        print(Mathf.Floor(1.9f));
+
 		if (Input.GetKeyDown(KeyCode.K)) { //testing only
             levelOver = true;
             NextLevel();
@@ -55,7 +65,35 @@ public class GameController : MonoBehaviour {
             print("LEVEL OVER");
         }
 
-        //update countdown on screen
+        //start the timer
+        if (LeverController.instance.start && singleCall) {
+            singleCall = false;
+            timeLeft = totalTime;
+        }
+
+        //update the timer text
+        if (timeLeft > 0.0f && !levelOver) {
+            timeLeft -= Time.deltaTime;
+            int intTime = (int) Mathf.Ceil(timeLeft);
+
+            string minutes = "";
+            string seconds = "";
+
+            if (intTime >= 60.0f) {
+                int intMinutes = (int) Mathf.Floor(intTime / 60.0f);
+                minutes = intMinutes.ToString();
+                seconds = (intTime - (intMinutes * 60)).ToString("D2");
+            } else {
+                minutes = "0";
+                seconds = intTime.ToString("D2");
+            }
+
+            timerText.text = minutes + ":" + seconds;
+        }
+
+        if (LeverController.instance.start && timeLeft <= 0.0f) {
+            levelOver = true;
+        }
     }
 
     //for ScreenController, tells it which item to display on the screen
