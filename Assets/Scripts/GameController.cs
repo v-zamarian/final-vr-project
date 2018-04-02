@@ -15,6 +15,9 @@ public class GameController : MonoBehaviour {
     public float totalTime;
     public Text strikesText;
     public Text timerText;
+    public Text pointsText;
+    public int pointsRequired;
+    public int pointsAmount; //amount to increase points by
     public GameObject[] itemList;
 
     public static GameController instance;
@@ -22,11 +25,8 @@ public class GameController : MonoBehaviour {
     float timeLeft = 0.0f;
     int keepItem;
     int strikes;
-    bool singleCall;
-
-    //will be used later, add to second screen
     int points;
-    int pointsRequired = 50;
+    bool singleCall;
 
     void Awake() {
         //fade from black
@@ -48,12 +48,12 @@ public class GameController : MonoBehaviour {
         //a random item from the list will be chosen
         keepItem = itemList[Random.Range(0, itemList.Length)].GetComponent<Item>().itemNum;
         print("KEEP ITEM: " + keepItem);
+
+        pointsText.text = points + " / " + pointsRequired;
     }
 	
 	// Update is called once per frame
 	void Update () {
-        print(Mathf.Floor(1.9f));
-
 		if (Input.GetKeyDown(KeyCode.K)) { //testing only
             levelOver = true;
             NextLevel();
@@ -107,6 +107,9 @@ public class GameController : MonoBehaviour {
             strikes++;
             strikesText.text = " X" + strikesText.text;
             //play buzzer sound
+        } else { //the correct item was kept
+            points += pointsAmount;
+            pointsText.text = points + " / " + pointsRequired;
         }
     }
 
