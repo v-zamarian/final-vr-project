@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using VRTK;
 
 [DefaultExecutionOrder (1)]
 public class GameController : MonoBehaviour {
@@ -28,9 +29,7 @@ public class GameController : MonoBehaviour {
     int points;
     bool singleCall;
 
-    void Awake() {
-        //fade from black
-    }
+    VRTK_HeadsetFade headsetFade = new VRTK_HeadsetFade();
 
     // Use this for initialization
     void Start () {
@@ -50,6 +49,8 @@ public class GameController : MonoBehaviour {
         print("KEEP ITEM: " + keepItem);
 
         pointsText.text = points + " / " + pointsRequired;
+
+        //headsetFade.Unfade(1.0f);
     }
 	
 	// Update is called once per frame
@@ -57,6 +58,14 @@ public class GameController : MonoBehaviour {
 		if (Input.GetKeyDown(KeyCode.K)) { //testing only
             levelOver = true;
             NextLevel();
+        }
+
+        if (Input.GetKeyDown(KeyCode.O)) {
+            headsetFade.Fade(Color.black, 0.5f);
+        }
+
+        if (Input.GetKeyDown(KeyCode.P)) {
+            headsetFade.Unfade(0.5f);
         }
 
         //the level is lost and the belt stops moving
@@ -103,7 +112,6 @@ public class GameController : MonoBehaviour {
 
     public void ItemDestroyed(int itemNum) {
         if (itemNum != keepItem) {
-            print(Time.time + " " + itemNum);
             strikes++;
             strikesText.text = " X" + strikesText.text;
             //play buzzer sound
@@ -123,12 +131,13 @@ public class GameController : MonoBehaviour {
     }
 
     public void NextLevel() {
-        //have headset fade to black
+        //have headset fade to black?
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void RetryLevel() {
-        //have headset fade to black
+        //have headset fade to black?
+        //headsetFade.Fade(Color.black, 1.0f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 

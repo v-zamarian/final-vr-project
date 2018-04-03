@@ -1,5 +1,5 @@
 ﻿// Victor Zamarian
-// 2/20/18
+// 4/2/18
 
 using System.Collections;
 using System.Collections.Generic;
@@ -32,7 +32,7 @@ public class Belt : MonoBehaviour {
             return;
         }
 
-        if (speed == 0.0f) { //items won't spawn when speed is 0, only for testing
+        if (speed == 0.0f) {
             collision.transform.GetComponent<Rigidbody>().constraints = constraints | RigidbodyConstraints.FreezePositionX;
         } else {
             collision.transform.GetComponent<Rigidbody>().constraints = constraints;
