@@ -6,12 +6,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Belt : MonoBehaviour {
-    RigidbodyConstraints constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionZ;
+    public bool verticalBelt;
+
+    RigidbodyConstraints constraints;
     float speed;
 
 	// Use this for initialization
 	void Start () {
         speed = transform.parent.parent.GetComponent<BeltController>().speed;
+
+        if (!verticalBelt) {
+            constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionZ;
+        } else {
+            constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionX;
+        }
 	}
 	
 	// Update is called once per frame
@@ -33,10 +41,20 @@ public class Belt : MonoBehaviour {
         }
 
         if (speed == 0.0f) {
-            collision.transform.GetComponent<Rigidbody>().constraints = constraints | RigidbodyConstraints.FreezePositionX;
+            if (!verticalBelt) {
+                collision.transform.GetComponent<Rigidbody>().constraints = constraints | RigidbodyConstraints.FreezePositionX;
+            } else {
+                collision.transform.GetComponent<Rigidbody>().constraints = constraints | RigidbodyConstraints.FreezePositionZ;
+            }
         } else {
             collision.transform.GetComponent<Rigidbody>().constraints = constraints;
-            collision.transform.GetComponent<Rigidbody>().velocity = speed * transform.right;
+
+            if (!verticalBelt) {
+                collision.transform.GetComponent<Rigidbody>().velocity = speed * transform.right;
+            } else {
+                collision.transform.GetComponent<Rigidbody>().velocity = speed * transform.right;
+            }
+            
         }
     }
 
