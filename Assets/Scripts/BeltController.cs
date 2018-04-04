@@ -1,4 +1,4 @@
-﻿// Victor Zamarian
+// Victor Zamarian
 // 2/20/18
 
 using System.Collections;
@@ -30,6 +30,7 @@ public class BeltController : MonoBehaviour {
         if (LeverController.instance.start && singleCall) {
             singleCall = false;
             speed = startingSpeed;
+		//start the belt sound effect
         }
 
         //increase the speed over time

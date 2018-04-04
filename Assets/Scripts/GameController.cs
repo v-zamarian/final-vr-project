@@ -1,4 +1,4 @@
-﻿// Victor Zamarian
+// Victor Zamarian
 // 3/26/18
 
 using System.Collections;
@@ -98,6 +98,8 @@ public class GameController : MonoBehaviour {
             }
 
             timerText.text = minutes + ":" + seconds;
+
+            //when timer says 20 or 30, play a whitsle sound
         }
 
         if (LeverController.instance.start && timeLeft <= 0.0f) {
@@ -118,6 +120,10 @@ public class GameController : MonoBehaviour {
         } else { //the correct item was kept
             points += pointsAmount;
             pointsText.text = points + " / " + pointsRequired;
+        //play sound effect any time points are gained
+        //when the point goal is achieved, play a sound
+
+        //when point goal is achieved, then decrease remaining time by some amount when keeping the correct item
         }
     }
 
@@ -133,6 +139,7 @@ public class GameController : MonoBehaviour {
     public void NextLevel() {
         //have headset fade to black?
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+	    //maybe play a transition sound
     }
 
     public void RetryLevel() {
