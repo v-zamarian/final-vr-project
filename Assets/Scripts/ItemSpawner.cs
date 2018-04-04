@@ -48,7 +48,8 @@ public class ItemSpawner : MonoBehaviour {
             Instantiate(item, spawnPosition, Quaternion.identity);
 
             //wait a random amount of time before spawning another item
-            float waitTime = Random.Range(minItemTime, maxItemTime);
+            float waitTime = Random.Range(minItemTime + GameController.instance.extraSpawnTime, 
+                maxItemTime + GameController.instance.extraSpawnTime);
             yield return new WaitForSeconds(waitTime);
         }
     }

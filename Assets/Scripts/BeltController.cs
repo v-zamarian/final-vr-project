@@ -39,6 +39,7 @@ public class BeltController : MonoBehaviour {
         if (current - start > waitTime && speed < maxSpeed) {
             speed += speedIncrement;
             start = current;
+            GameController.instance.extraSpawnTime += 0.25f;
         }
 
         if (GameController.instance.levelOver) {

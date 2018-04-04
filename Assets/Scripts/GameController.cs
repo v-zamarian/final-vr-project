@@ -14,7 +14,12 @@ public class GameController : MonoBehaviour {
     public bool levelOver;
     public float totalTime;
 
+    [HideInInspector]
+    public float extraSpawnTime; //items wait longer to spawn at higher speeds
+
     public int maxStrikes;
+    public Text strikeText;
+    public Text strikeTextMax;
     public Text[] strikesTextList;
 
     public Text timerText;
@@ -30,6 +35,7 @@ public class GameController : MonoBehaviour {
     int strikes;
     int points;
     bool singleCall;
+    bool playOnce;
 
     // Use this for initialization
     void Start () {
@@ -40,16 +46,17 @@ public class GameController : MonoBehaviour {
         }
 
         singleCall = true;
+        playOnce = true;
         levelOver = false;
         strikes = 0;
         points = 0;
+        extraSpawnTime = 0.0f;
 
         //a random item from the list will be chosen
         keepItem = itemList[Random.Range(0, itemList.Length)].GetComponent<Item>().itemNum;
 
         pointsText.text = points + " / " + pointsRequired;
-
-        //headsetFade.Unfade(1.0f);
+        strikeTextMax.text = " / " + maxStrikes;
     }
 	
 	// Update is called once per frame
@@ -107,14 +114,22 @@ public class GameController : MonoBehaviour {
             if (itemNum != keepItem) {
                 strikes++;
                 strikesTextList[strikes - 1].color = Color.red;
+                strikeText.text = "" + strikes;
                 //play buzzer sound
             } else { //the correct item was kept
                 points += pointsAmount;
                 pointsText.text = points + " / " + pointsRequired;
                 //play sound effect any time points are gained
-                //when the point goal is achieved, play a sound
 
-                //when point goal is achieved, then decrease remaining time by some amount when keeping the correct item
+                if (points >= pointsRequired) {    
+                    if (playOnce) {
+                        playOnce = false;
+                        //when the point goal is achieved, play a sound
+                    }
+
+                    //decrease remaining time when keeping the correct item now that point goal is met
+                    timeLeft -= 5;
+                }
             }
         }
     }
