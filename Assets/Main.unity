@@ -197,12 +197,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 64151514}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &69762905 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114860099149858964, guid: c524431c6fae34346bef6ec311e8aed1,
-    type: 2}
-  m_PrefabInternal: {fileID: 1372799745}
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &82244287
 GameObject:
   m_ObjectHideFlags: 0
@@ -5303,9 +5297,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelOver: 0
-  maxStrikes: 3
   totalTime: 15
-  strikesText: {fileID: 69762905}
+  maxStrikes: 3
+  strikesTextList:
+  - {fileID: 1372799748}
+  - {fileID: 1372799747}
+  - {fileID: 1372799746}
   timerText: {fileID: 641355302}
   pointsText: {fileID: 878829799}
   pointsRequired: 0
@@ -6230,11 +6227,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114440575691814874, guid: c524431c6fae34346bef6ec311e8aed1,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 915349779}
+    - target: {fileID: 1496595622011358, guid: c524431c6fae34346bef6ec311e8aed1, type: 2}
+      propertyPath: m_Name
+      value: Main Screen
+      objectReference: {fileID: 0}
     - target: {fileID: 114851483593725144, guid: c524431c6fae34346bef6ec311e8aed1,
         type: 2}
       propertyPath: itemCameras.Array.data[0]
@@ -6255,45 +6251,27 @@ Prefab:
       propertyPath: itemCameras.Array.data[3]
       value: 
       objectReference: {fileID: 189698776}
-    - target: {fileID: 114523616234148320, guid: c524431c6fae34346bef6ec311e8aed1,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 915349779}
-    - target: {fileID: 114724466110590238, guid: c524431c6fae34346bef6ec311e8aed1,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 915349779}
-    - target: {fileID: 4417177439517718, guid: c524431c6fae34346bef6ec311e8aed1, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 3.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4417177439517718, guid: c524431c6fae34346bef6ec311e8aed1, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4417177439517718, guid: c524431c6fae34346bef6ec311e8aed1, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1496595622011358, guid: c524431c6fae34346bef6ec311e8aed1, type: 2}
-      propertyPath: m_Name
-      value: Main Screen
-      objectReference: {fileID: 0}
-    - target: {fileID: 114852029792214760, guid: c524431c6fae34346bef6ec311e8aed1,
-        type: 2}
-      propertyPath: m_DynamicPixelsPerUnit
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114860099149858964, guid: c524431c6fae34346bef6ec311e8aed1,
-        type: 2}
-      propertyPath: m_Text
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c524431c6fae34346bef6ec311e8aed1, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1372799746 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114156552849760078, guid: c524431c6fae34346bef6ec311e8aed1,
+    type: 2}
+  m_PrefabInternal: {fileID: 1372799745}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &1372799747 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114458051621311606, guid: c524431c6fae34346bef6ec311e8aed1,
+    type: 2}
+  m_PrefabInternal: {fileID: 1372799745}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &1372799748 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114432149710978058, guid: c524431c6fae34346bef6ec311e8aed1,
+    type: 2}
+  m_PrefabInternal: {fileID: 1372799745}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1383459631
 GameObject:
   m_ObjectHideFlags: 0

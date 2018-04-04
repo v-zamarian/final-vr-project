@@ -43,7 +43,6 @@ public class ScreenController : MonoBehaviour {
             }
         }
 
-        print("CAMERA: " + cameraNum);
         itemCameras[cameraNum].SetActive(true);
 
         transform.GetChild(0).GetComponent<Renderer>().material.mainTexture = cameraTextures[cameraNum];

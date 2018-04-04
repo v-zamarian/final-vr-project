@@ -12,9 +12,11 @@ using VRTK;
 public class GameController : MonoBehaviour {
 
     public bool levelOver;
-    public int maxStrikes;
     public float totalTime;
-    public Text strikesText;
+
+    public int maxStrikes;
+    public Text[] strikesTextList;
+
     public Text timerText;
     public Text pointsText;
     public int pointsRequired;
@@ -28,8 +30,6 @@ public class GameController : MonoBehaviour {
     int strikes;
     int points;
     bool singleCall;
-
-    VRTK_HeadsetFade headsetFade = new VRTK_HeadsetFade();
 
     // Use this for initialization
     void Start () {
@@ -46,7 +46,6 @@ public class GameController : MonoBehaviour {
 
         //a random item from the list will be chosen
         keepItem = itemList[Random.Range(0, itemList.Length)].GetComponent<Item>().itemNum;
-        print("KEEP ITEM: " + keepItem);
 
         pointsText.text = points + " / " + pointsRequired;
 
@@ -60,18 +59,9 @@ public class GameController : MonoBehaviour {
             NextLevel();
         }
 
-        if (Input.GetKeyDown(KeyCode.O)) {
-            headsetFade.Fade(Color.black, 0.5f);
-        }
-
-        if (Input.GetKeyDown(KeyCode.P)) {
-            headsetFade.Unfade(0.5f);
-        }
-
         //the level is lost and the belt stops moving
         if (strikes >= maxStrikes) {
             levelOver = true;
-            print("LEVEL OVER");
         }
 
         //start the timer
@@ -113,17 +103,19 @@ public class GameController : MonoBehaviour {
     }
 
     public void ItemDestroyed(int itemNum) {
-        if (itemNum != keepItem) {
-            strikes++;
-            strikesText.text = " X" + strikesText.text;
-            //play buzzer sound
-        } else { //the correct item was kept
-            points += pointsAmount;
-            pointsText.text = points + " / " + pointsRequired;
-        //play sound effect any time points are gained
-        //when the point goal is achieved, play a sound
+        if (!levelOver) {
+            if (itemNum != keepItem) {
+                strikes++;
+                strikesTextList[strikes - 1].color = Color.red;
+                //play buzzer sound
+            } else { //the correct item was kept
+                points += pointsAmount;
+                pointsText.text = points + " / " + pointsRequired;
+                //play sound effect any time points are gained
+                //when the point goal is achieved, play a sound
 
-        //when point goal is achieved, then decrease remaining time by some amount when keeping the correct item
+                //when point goal is achieved, then decrease remaining time by some amount when keeping the correct item
+            }
         }
     }
 
