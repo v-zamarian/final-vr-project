@@ -1,5 +1,5 @@
 // Victor Zamarian
-// 3/26/18
+// 4/6/18
 
 using System.Collections;
 using System.Collections.Generic;
@@ -24,6 +24,8 @@ public class GameController : MonoBehaviour {
 
     public Text timerText;
     public Text pointsText;
+    public Text keepText;
+    public Text leverText;
     public int pointsRequired;
     public int pointsAmount; //amount to increase points by
     public GameObject[] itemList;
@@ -57,6 +59,8 @@ public class GameController : MonoBehaviour {
 
         pointsText.text = points + " / " + pointsRequired;
         strikeTextMax.text = " / " + maxStrikes;
+        keepText.enabled = false;
+        leverText.enabled = true;
     }
 	
 	// Update is called once per frame
@@ -75,6 +79,8 @@ public class GameController : MonoBehaviour {
         if (LeverController.instance.start && singleCall) {
             singleCall = false;
             timeLeft = totalTime;
+            keepText.enabled = true;
+            leverText.enabled = false;
         }
 
         //update the timer text
@@ -144,15 +150,12 @@ public class GameController : MonoBehaviour {
     }
 
     public void NextLevel() {
-        //have headset fade to black?
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
 	    //maybe play a transition sound
     }
 
     public void RetryLevel() {
-        //have headset fade to black?
-        //headsetFade.Fade(Color.black, 1.0f);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void QuitGame() {

@@ -1,5 +1,5 @@
 // Victor Zamarian
-// 2/20/18
+// 4/6/18
 
 using System.Collections;
 using System.Collections.Generic;
@@ -30,7 +30,7 @@ public class BeltController : MonoBehaviour {
         if (LeverController.instance.start && singleCall) {
             singleCall = false;
             speed = startingSpeed;
-		//start the belt sound effect
+		    //start the belt sound effect
         }
 
         //increase the speed over time
@@ -43,7 +43,7 @@ public class BeltController : MonoBehaviour {
         }
 
         if (GameController.instance.levelOver) {
-            //play a powering down sound effect
+            //play a powering down sound effect and stop the normal belt sound effect
             speed = 0.0f;
         }
     }
