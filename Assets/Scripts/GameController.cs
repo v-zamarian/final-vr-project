@@ -107,6 +107,7 @@ public class GameController : MonoBehaviour {
 
         if (LeverController.instance.start && timeLeft <= 0.0f) {
             levelOver = true;
+            timerText.text = "0:00";
         }
     }
 
