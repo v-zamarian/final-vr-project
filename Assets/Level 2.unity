@@ -445,6 +445,16 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 0.8
       objectReference: {fileID: 0}
+    - target: {fileID: 65688307008684600, guid: 3fc91f4b9ee6639459e335d758bf7b8f,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 65865702352473082, guid: 3fc91f4b9ee6639459e335d758bf7b8f,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3fc91f4b9ee6639459e335d758bf7b8f, type: 2}
   m_IsPrefabParent: 0
@@ -1288,16 +1298,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4713175220249302, guid: 3f2945d84fb918749af8c9bbba20a1d7,
     type: 2}
   m_PrefabInternal: {fileID: 372358409}
---- !u!1 &388107109 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1391022766006510, guid: be540b97364be0a4890e39e62ac89ed1,
-    type: 2}
-  m_PrefabInternal: {fileID: 2135710011}
---- !u!1 &412180890 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1000013941130086, guid: be540b97364be0a4890e39e62ac89ed1,
-    type: 2}
-  m_PrefabInternal: {fileID: 2135710011}
 --- !u!1 &433269106
 GameObject:
   m_ObjectHideFlags: 0
@@ -5396,11 +5396,6 @@ MonoBehaviour:
   - {fileID: 1408992887383490, guid: 1f6053e4f8ba2d944912557afb047373, type: 2}
   - {fileID: 1408992887383490, guid: c54953017127e6b40b28377c33815cb5, type: 2}
   - {fileID: 1408992887383490, guid: 87f812b8377b02f489759ad7fbb684c1, type: 2}
---- !u!1 &921637630 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1883185261795400, guid: be540b97364be0a4890e39e62ac89ed1,
-    type: 2}
-  m_PrefabInternal: {fileID: 2135710011}
 --- !u!1001 &933058199
 Prefab:
   m_ObjectHideFlags: 0
@@ -6681,11 +6676,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!1 &1405547591 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1384746914293964, guid: be540b97364be0a4890e39e62ac89ed1,
-    type: 2}
-  m_PrefabInternal: {fileID: 2135710011}
 --- !u!1001 &1417533922
 Prefab:
   m_ObjectHideFlags: 0
@@ -7353,12 +7343,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoPopulateObjectReferences: 1
-  actualBoundaries: {fileID: 412180890}
-  actualHeadset: {fileID: 2089932419}
-  actualLeftController: {fileID: 1721744085}
-  actualRightController: {fileID: 388107109}
-  modelAliasLeftController: {fileID: 1405547591}
-  modelAliasRightController: {fileID: 921637630}
+  actualBoundaries: {fileID: 0}
+  actualHeadset: {fileID: 0}
+  actualLeftController: {fileID: 0}
+  actualRightController: {fileID: 0}
+  modelAliasLeftController: {fileID: 0}
+  modelAliasRightController: {fileID: 0}
   cachedSystemSDKInfo:
     baseTypeName: VRTK.SDK_BaseSystem
     fallbackTypeName: VRTK.SDK_FallbackSystem
@@ -7955,11 +7945,6 @@ Transform:
   m_Father: {fileID: 1118058966}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1721744085 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1538727058887424, guid: be540b97364be0a4890e39e62ac89ed1,
-    type: 2}
-  m_PrefabInternal: {fileID: 2135710011}
 --- !u!1 &1743393917
 GameObject:
   m_ObjectHideFlags: 0
@@ -8111,6 +8096,16 @@ Prefab:
     - target: {fileID: 4718560735174588, guid: 3fc91f4b9ee6639459e335d758bf7b8f, type: 2}
       propertyPath: m_LocalScale.z
       value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 65688307008684600, guid: 3fc91f4b9ee6639459e335d758bf7b8f,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 65865702352473082, guid: 3fc91f4b9ee6639459e335d758bf7b8f,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3fc91f4b9ee6639459e335d758bf7b8f, type: 2}
@@ -8944,11 +8939,6 @@ MonoBehaviour:
   setups:
   - {fileID: 1887677961}
   - {fileID: 1537248322}
---- !u!1 &2089932419 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1587602180963074, guid: be540b97364be0a4890e39e62ac89ed1,
-    type: 2}
-  m_PrefabInternal: {fileID: 2135710011}
 --- !u!1 &2090552345
 GameObject:
   m_ObjectHideFlags: 0
