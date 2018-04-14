@@ -7,6 +7,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using VRTK;
+using VOA = VRTK.VRTK_ObjectAppearance;
 
 [DefaultExecutionOrder (1)]
 public class GameController : MonoBehaviour {
@@ -28,6 +29,8 @@ public class GameController : MonoBehaviour {
     public Text leverText;
     public int pointsRequired;
     public int pointsAmount; //amount to increase points by
+    public GameObject faderObjSim;
+    public GameObject faderObjRift;
     public GameObject[] itemList;
 
     public static GameController instance;
@@ -37,6 +40,8 @@ public class GameController : MonoBehaviour {
     int strikes;
     int points;
     bool singleCall;
+    bool singleCall2;
+    bool singleCall3;
     bool playOnce;
 
     // Use this for initialization
@@ -48,6 +53,8 @@ public class GameController : MonoBehaviour {
         }
 
         singleCall = true;
+        singleCall2 = true;
+        singleCall3 = true;
         playOnce = true;
         levelOver = false;
         strikes = 0;
@@ -61,13 +68,20 @@ public class GameController : MonoBehaviour {
         strikeTextMax.text = " / " + maxStrikes;
         keepText.enabled = false;
         leverText.enabled = true;
+
+        StartCoroutine(StartFadeIn());
     }
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown(KeyCode.K)) { //testing only
-            levelOver = true;
-            NextLevel();
+        if (faderObjRift.GetComponent<Renderer>().material.color.a <= 0.0f && singleCall2) {
+            singleCall2 = false;
+            faderObjRift.transform.Translate(-0.5f * transform.forward);
+        }
+
+        if (faderObjSim.GetComponent<Renderer>().material.color.a <= 0.0f && singleCall3) {
+            singleCall3 = false;
+            faderObjSim.transform.Translate(-1.0f * transform.forward);
         }
 
         //the level is lost and the belt stops moving
@@ -111,6 +125,26 @@ public class GameController : MonoBehaviour {
         }
     }
 
+    //fade screen from black at the start of the scene
+    IEnumerator StartFadeIn() {
+        yield return new WaitForSeconds(0.5f);
+        FadeIn();
+    }
+
+    //fade screen from black
+    void FadeIn() {
+        VOA.SetOpacity(faderObjRift, 0.0f, 1.5f);
+        VOA.SetOpacity(faderObjSim, 0.0f, 1.5f);
+    }
+
+    //fade screen to black
+    void FadeOut() {
+        faderObjRift.transform.Translate(1.0f * transform.forward);
+        faderObjSim.transform.Translate(1.0f * transform.forward);
+        VOA.SetOpacity(faderObjRift, 0.5f, 1.5f);
+        VOA.SetOpacity(faderObjSim, 1.0f, 1.5f);
+    }
+
     //for ScreenController, tells it which item to display on the screen
     public int GetKeepItem() {
         return keepItem;
@@ -150,15 +184,29 @@ public class GameController : MonoBehaviour {
         return 0; //level was not lost
     }
 
+    //go to the next level
     public void NextLevel() {
-        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
-	    //maybe play a transition sound
+        StartCoroutine(NextLevelCo());
     }
 
+    IEnumerator NextLevelCo() {
+        FadeOut();
+        yield return new WaitForSeconds(1.6f);
+        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    //retry the current level
     public void RetryLevel() {
+        StartCoroutine(RetryLevelCo());
+    }
+
+    IEnumerator RetryLevelCo() {
+        FadeOut();
+        yield return new WaitForSeconds(1.6f);
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
     }
 
+    //quit the game
     public void QuitGame() {
         Application.Quit();
     }
