@@ -12,6 +12,7 @@ using VOA = VRTK.VRTK_ObjectAppearance;
 [DefaultExecutionOrder (1)]
 public class GameController : MonoBehaviour {
 
+    [HideInInspector]
     public bool levelOver;
     public float totalTime;
 
@@ -33,6 +34,13 @@ public class GameController : MonoBehaviour {
     public GameObject faderObjRift;
     public GameObject[] itemList;
 
+    //Sound Effects
+    //GameController: whistle at 20/30 seconds[3], buzzer on incorrect item[1], points gained[0],
+    //goal points reached[2], transition sound(?)[7]
+    //LeverController: lever destroyed[4]
+    //BeltController: constant belt sound[5], belt power down[6]
+    public AudioSource[] audioSources;
+
     public static GameController instance;
 
     float timeLeft = 0.0f;
@@ -43,6 +51,7 @@ public class GameController : MonoBehaviour {
     bool singleCall2;
     bool singleCall3;
     bool playOnce;
+    bool playOnce2;
 
     // Use this for initialization
     void Start () {
@@ -56,6 +65,7 @@ public class GameController : MonoBehaviour {
         singleCall2 = true;
         singleCall3 = true;
         playOnce = true;
+        playOnce2 = true;
         levelOver = false;
         strikes = 0;
         points = 0;
@@ -116,7 +126,12 @@ public class GameController : MonoBehaviour {
 
             timerText.text = minutes + ":" + seconds;
 
-            //when timer says 20 or 30, play a whitsle sound
+            if (timeLeft <= 30.0f && playOnce) {
+                playOnce = false;
+                //when timer says 30, play a whitsle sound
+                audioSources[3].Play();
+                Debug.Log(Time.time + " whistle sound played");
+            }
         }
 
         if (LeverController.instance.start && timeLeft <= 0.0f) {
@@ -157,15 +172,22 @@ public class GameController : MonoBehaviour {
                 strikesTextList[strikes - 1].color = Color.red;
                 strikeText.text = "" + strikes;
                 //play buzzer sound
+                audioSources[1].Play();
+                Debug.Log(Time.time + " buzzer sound played");
+
             } else { //the correct item was kept
                 points += pointsAmount;
                 pointsText.text = points + " / " + pointsRequired;
                 //play sound effect any time points are gained
+                audioSources[0].Play();
+                Debug.Log(Time.time + " point gain sound played");
 
                 if (points >= pointsRequired) {    
-                    if (playOnce) {
-                        playOnce = false;
+                    if (playOnce2) {
+                        playOnce2 = false;
                         //when the point goal is achieved, play a sound
+                        audioSources[2].Play();
+                        Debug.Log(Time.time + " goal sound played");
                     }
 
                     //decrease remaining time when keeping the correct item now that point goal is met
@@ -191,6 +213,10 @@ public class GameController : MonoBehaviour {
 
     IEnumerator NextLevelCo() {
         FadeOut();
+        //maybe play transition sound effect
+        audioSources[7].Play();
+        Debug.Log(Time.time + " transition sound played");
+
         yield return new WaitForSeconds(1.6f);
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
     }

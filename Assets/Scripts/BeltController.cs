@@ -14,6 +14,7 @@ public class BeltController : MonoBehaviour {
 
     public float speedIncrement; //public for now
     bool singleCall;
+    bool singleCall2;
 
     float start;
     public float waitTime;
@@ -23,6 +24,7 @@ public class BeltController : MonoBehaviour {
         start = Time.time;
         speed = 0.0f;
         singleCall = true;
+        singleCall2 = true;
     }
 
     // Update is called once per frame
@@ -30,7 +32,10 @@ public class BeltController : MonoBehaviour {
         if (LeverController.instance.start && singleCall) {
             singleCall = false;
             speed = startingSpeed;
-		    //start the belt sound effect
+            //start the belt sound effect
+            GameController.instance.audioSources[5].Play();
+            Debug.Log(Time.time + " belt sound started");
+
         }
 
         //increase the speed over time
@@ -42,9 +47,17 @@ public class BeltController : MonoBehaviour {
             GameController.instance.extraSpawnTime += 0.25f;
         }
 
-        if (GameController.instance.levelOver) {
-            //play a powering down sound effect and stop the normal belt sound effect
+        if (GameController.instance.levelOver) {      
             speed = 0.0f;
+
+            if (singleCall2) {
+                singleCall2 = false;
+                //play a powering down sound effect and stop the normal belt sound effect
+                GameController.instance.audioSources[5].Stop();
+                Debug.Log(Time.time + " belt sound stopped");
+                GameController.instance.audioSources[6].Play();
+                Debug.Log(Time.time + " power down sound played");
+            }
         }
     }
 }
