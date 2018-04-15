@@ -35,10 +35,9 @@ public class LeverController : MonoBehaviour {
 	}
 
     void OnDestroy() {
+        particles.Play();
+
         //play a sound effect as well
         GameController.instance.audioSources[4].Play();
-        Debug.Log(Time.time + " poof sound played");
-
-        particles.Play();
     }
 }

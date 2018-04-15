@@ -34,7 +34,6 @@ public class BeltController : MonoBehaviour {
             speed = startingSpeed;
             //start the belt sound effect
             GameController.instance.audioSources[5].Play();
-            Debug.Log(Time.time + " belt sound started");
 
         }
 
@@ -54,9 +53,7 @@ public class BeltController : MonoBehaviour {
                 singleCall2 = false;
                 //play a powering down sound effect and stop the normal belt sound effect
                 GameController.instance.audioSources[5].Stop();
-                Debug.Log(Time.time + " belt sound stopped");
                 GameController.instance.audioSources[6].Play();
-                Debug.Log(Time.time + " power down sound played");
             }
         }
     }

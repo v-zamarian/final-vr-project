@@ -35,8 +35,8 @@ public class GameController : MonoBehaviour {
     public GameObject[] itemList;
 
     //Sound Effects
-    //GameController: whistle at 20/30 seconds[3], buzzer on incorrect item[1], points gained[0],
-    //goal points reached[2], transition sound(?)[7]
+    //GameController:  points gained[0], buzzer on incorrect item[1], goal points reached[2],
+    //whistle at 20/30 seconds[3], transition sound[7]
     //LeverController: lever destroyed[4]
     //BeltController: constant belt sound[5], belt power down[6]
     public AudioSource[] audioSources;
@@ -130,7 +130,6 @@ public class GameController : MonoBehaviour {
                 playOnce = false;
                 //when timer says 30, play a whitsle sound
                 audioSources[3].Play();
-                Debug.Log(Time.time + " whistle sound played");
             }
         }
 
@@ -171,23 +170,21 @@ public class GameController : MonoBehaviour {
                 strikes++;
                 strikesTextList[strikes - 1].color = Color.red;
                 strikeText.text = "" + strikes;
-                //play buzzer sound
                 audioSources[1].Play();
-                Debug.Log(Time.time + " buzzer sound played");
 
             } else { //the correct item was kept
                 points += pointsAmount;
                 pointsText.text = points + " / " + pointsRequired;
                 //play sound effect any time points are gained
-                audioSources[0].Play();
-                Debug.Log(Time.time + " point gain sound played");
+                if (points < pointsRequired || !playOnce2) {
+                    audioSources[0].Play();
+                }
 
                 if (points >= pointsRequired) {    
                     if (playOnce2) {
                         playOnce2 = false;
                         //when the point goal is achieved, play a sound
                         audioSources[2].Play();
-                        Debug.Log(Time.time + " goal sound played");
                     }
 
                     //decrease remaining time when keeping the correct item now that point goal is met
@@ -213,9 +210,8 @@ public class GameController : MonoBehaviour {
 
     IEnumerator NextLevelCo() {
         FadeOut();
-        //maybe play transition sound effect
+        //play transition sound effect
         audioSources[7].Play();
-        Debug.Log(Time.time + " transition sound played");
 
         yield return new WaitForSeconds(1.6f);
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
@@ -228,6 +224,9 @@ public class GameController : MonoBehaviour {
 
     IEnumerator RetryLevelCo() {
         FadeOut();
+        //play transition sound effect
+        audioSources[7].Play();
+
         yield return new WaitForSeconds(1.6f);
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
     }
