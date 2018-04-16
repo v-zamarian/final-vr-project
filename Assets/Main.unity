@@ -5432,7 +5432,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelOver: 0
-  totalTime: 15
+  totalTime: 35
   extraSpawnTime: 0
   maxStrikes: 3
   strikeText: {fileID: 760091709}
@@ -8941,8 +8941,8 @@ MonoBehaviour:
   autoManageVRSettings: 1
   autoLoadSetup: 1
   setups:
-  - {fileID: 1887677961}
   - {fileID: 1537248322}
+  - {fileID: 1887677961}
 --- !u!1 &2090552345
 GameObject:
   m_ObjectHideFlags: 0
