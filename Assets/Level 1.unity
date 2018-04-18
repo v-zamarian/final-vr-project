@@ -327,7 +327,7 @@ Transform:
   m_GameObject: {fileID: 69054925}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.25}
-  m_LocalScale: {x: 2, y: 0.79999995, z: 0.1}
+  m_LocalScale: {x: 3, y: 2, z: 0.1}
   m_Children: []
   m_Father: {fileID: 1119474725}
   m_RootOrder: 0
@@ -534,11 +534,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 130, y: 0, z: 0}
---- !u!1 &153457729 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1384746914293964, guid: be540b97364be0a4890e39e62ac89ed1,
-    type: 2}
-  m_PrefabInternal: {fileID: 2135710011}
 --- !u!1 &155348933
 GameObject:
   m_ObjectHideFlags: 0
@@ -1610,7 +1605,7 @@ Prefab:
     - target: {fileID: 114587305039627580, guid: 294a4b5b8c5af1349bf7761720b9e48b,
         type: 2}
       propertyPath: maxItemTime
-      value: 2
+      value: 1.9
       objectReference: {fileID: 0}
     - target: {fileID: 4471372249082410, guid: 294a4b5b8c5af1349bf7761720b9e48b, type: 2}
       propertyPath: m_LocalPosition.z
@@ -5122,11 +5117,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1999972069}
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
---- !u!1 &601850522 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1883185261795400, guid: be540b97364be0a4890e39e62ac89ed1,
-    type: 2}
-  m_PrefabInternal: {fileID: 2135710011}
 --- !u!114 &619976703 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114173626505740888, guid: a0656c9e177383b48b558d4e8eab79c8,
@@ -5258,11 +5248,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8e4d85f56d23e8a4fb0ef4b09dcc8085, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &774339393 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1000013941130086, guid: be540b97364be0a4890e39e62ac89ed1,
-    type: 2}
-  m_PrefabInternal: {fileID: 2135710011}
 --- !u!1 &809954192
 GameObject:
   m_ObjectHideFlags: 0
@@ -5608,11 +5593,6 @@ MonoBehaviour:
   - {fileID: 1004497586}
   - {fileID: 1004497585}
   - {fileID: 1004497584}
---- !u!1 &920964152 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1587602180963074, guid: be540b97364be0a4890e39e62ac89ed1,
-    type: 2}
-  m_PrefabInternal: {fileID: 2135710011}
 --- !u!1 &974589550
 GameObject:
   m_ObjectHideFlags: 0
@@ -6897,11 +6877,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1427121554}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1446059181 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1538727058887424, guid: be540b97364be0a4890e39e62ac89ed1,
-    type: 2}
-  m_PrefabInternal: {fileID: 2135710011}
 --- !u!1 &1463575719
 GameObject:
   m_ObjectHideFlags: 0
@@ -7232,12 +7207,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoPopulateObjectReferences: 1
-  actualBoundaries: {fileID: 774339393}
-  actualHeadset: {fileID: 920964152}
-  actualLeftController: {fileID: 1446059181}
-  actualRightController: {fileID: 1704155529}
-  modelAliasLeftController: {fileID: 153457729}
-  modelAliasRightController: {fileID: 601850522}
+  actualBoundaries: {fileID: 0}
+  actualHeadset: {fileID: 0}
+  actualLeftController: {fileID: 0}
+  actualRightController: {fileID: 0}
+  modelAliasLeftController: {fileID: 0}
+  modelAliasRightController: {fileID: 0}
   cachedSystemSDKInfo:
     baseTypeName: VRTK.SDK_BaseSystem
     fallbackTypeName: VRTK.SDK_FallbackSystem
@@ -7750,11 +7725,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1674194736}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1704155529 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1391022766006510, guid: be540b97364be0a4890e39e62ac89ed1,
-    type: 2}
-  m_PrefabInternal: {fileID: 2135710011}
 --- !u!1 &1743393917
 GameObject:
   m_ObjectHideFlags: 0

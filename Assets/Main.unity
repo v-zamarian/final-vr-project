@@ -1095,11 +1095,6 @@ Transform:
   m_Father: {fileID: 830978871}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &456383718 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1384746914293964, guid: be540b97364be0a4890e39e62ac89ed1,
-    type: 2}
-  m_PrefabInternal: {fileID: 2135710011}
 --- !u!1 &480073214
 GameObject:
   m_ObjectHideFlags: 0
@@ -1189,11 +1184,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4718560735174588, guid: 3fc91f4b9ee6639459e335d758bf7b8f,
     type: 2}
   m_PrefabInternal: {fileID: 1417533922}
---- !u!1 &517381419 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1538727058887424, guid: be540b97364be0a4890e39e62ac89ed1,
-    type: 2}
-  m_PrefabInternal: {fileID: 2135710011}
 --- !u!1001 &564907091
 Prefab:
   m_ObjectHideFlags: 0
@@ -1246,11 +1236,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 294a4b5b8c5af1349bf7761720b9e48b, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &586447526 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1883185261795400, guid: be540b97364be0a4890e39e62ac89ed1,
-    type: 2}
-  m_PrefabInternal: {fileID: 2135710011}
 --- !u!1 &586488568
 GameObject:
   m_ObjectHideFlags: 0
@@ -5238,11 +5223,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 372358409}
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
---- !u!1 &881736224 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1391022766006510, guid: be540b97364be0a4890e39e62ac89ed1,
-    type: 2}
-  m_PrefabInternal: {fileID: 2135710011}
 --- !u!1001 &889200329
 Prefab:
   m_ObjectHideFlags: 0
@@ -5406,7 +5386,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelOver: 0
-  totalTime: 35
+  totalTime: 15
   extraSpawnTime: 0
   maxStrikes: 3
   strikeText: {fileID: 760091709}
@@ -6216,11 +6196,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1245595537}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1264613122 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1587602180963074, guid: be540b97364be0a4890e39e62ac89ed1,
-    type: 2}
-  m_PrefabInternal: {fileID: 2135710011}
 --- !u!1 &1286196999
 GameObject:
   m_ObjectHideFlags: 0
@@ -6775,6 +6750,11 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114147551240674310, guid: 3fc91f4b9ee6639459e335d758bf7b8f,
+        type: 2}
+      propertyPath: startingSpeed
+      value: 0.75
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3fc91f4b9ee6639459e335d758bf7b8f, type: 2}
   m_IsPrefabParent: 0
@@ -7283,12 +7263,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoPopulateObjectReferences: 1
-  actualBoundaries: {fileID: 1699290533}
-  actualHeadset: {fileID: 1264613122}
-  actualLeftController: {fileID: 517381419}
-  actualRightController: {fileID: 881736224}
-  modelAliasLeftController: {fileID: 456383718}
-  modelAliasRightController: {fileID: 586447526}
+  actualBoundaries: {fileID: 0}
+  actualHeadset: {fileID: 0}
+  actualLeftController: {fileID: 0}
+  actualRightController: {fileID: 0}
+  modelAliasLeftController: {fileID: 0}
+  modelAliasRightController: {fileID: 0}
   cachedSystemSDKInfo:
     baseTypeName: VRTK.SDK_BaseSystem
     fallbackTypeName: VRTK.SDK_FallbackSystem
@@ -7990,11 +7970,6 @@ Transform:
   m_Father: {fileID: 1118058966}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1699290533 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1000013941130086, guid: be540b97364be0a4890e39e62ac89ed1,
-    type: 2}
-  m_PrefabInternal: {fileID: 2135710011}
 --- !u!1 &1743393917
 GameObject:
   m_ObjectHideFlags: 0
@@ -8253,7 +8228,7 @@ Transform:
   m_GameObject: {fileID: 1795080407}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.25}
-  m_LocalScale: {x: 2, y: 0.8, z: 0.1}
+  m_LocalScale: {x: 3, y: 2, z: 0.1}
   m_Children: []
   m_Father: {fileID: 1038555600}
   m_RootOrder: 0

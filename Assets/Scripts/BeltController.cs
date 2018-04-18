@@ -9,10 +9,10 @@ public class BeltController : MonoBehaviour {
     [HideInInspector]
     public float speed;
 
-    float startingSpeed = 0.75f;
+    public float startingSpeed = 0.75f;
     float maxSpeed = 3.0f;
 
-    public float speedIncrement; //public for now
+    float speedIncrement = 0.75f;
     bool singleCall;
     bool singleCall2;
 
@@ -43,7 +43,7 @@ public class BeltController : MonoBehaviour {
         if (current - start > waitTime && speed < maxSpeed) {
             speed += speedIncrement;
             start = current;
-            GameController.instance.extraSpawnTime += 0.25f;
+            //GameController.instance.extraSpawnTime += 0.25f;
         }
 
         if (GameController.instance.levelOver) {      
